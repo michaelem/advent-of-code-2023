@@ -6,7 +6,7 @@ class Day1::TrebuchetTest < Minitest::Test
     @trebuchet = Day1::Trebuchet.new()
   end
 
-  def test_run
-    assert_equal "Day 1 will be a thing soon! (test/day_1/input.txt)", @trebuchet.run("test/day_1/input.txt")
+  def test_run_part_1
+    assert_equal "142", @trebuchet.run("test/day_1/input_1.txt")
   end
 end
