@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby -I lib/
+
+require 'zeitwerk'
+require 'thor'
+
+loader = Zeitwerk::Loader.new
+loader.push_dir('lib')
+loader.setup
+loader.eager_load
+
+class AdventCli < Thor
+  option :input, type: :string, required: false, banner: 'input/input.txt', desc: "the input file to use"
+
+  desc "day", "run a solution for a given day"
+  def day(day)
+    input_file = options[:input] || "input/day_#{day}.txt"
+
+    case day
+    when '1'
+      Day1::Trebuchet.new.run(input_file)
+    else
+      puts "Solution for day #{day} not implemented yet!"
+    end
+  rescue ArgumentError => e
+    puts e.message
+  end
+end
+
+AdventCli.start(ARGV)
