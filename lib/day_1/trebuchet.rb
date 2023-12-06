@@ -1,11 +1,29 @@
-
+VALUES = {
+  "one" => "1",
+  "two" => "2",
+  "three" => "3",
+  "four" => "4",
+  "five" => "5",
+  "six" => "6",
+  "seven" => "7",
+  "eight" => "8",
+  "nine" => "9",
+  "1" => "1",
+  "2" => "2",
+  "3" =>  "3",
+  "4" => "4",
+  "5" => "5",
+  "6" => "6",
+  "7" => "7",
+  "8" => "8",
+  "9" => "9"
+}
 
 class Day1::Trebuchet
   def find_first_digit(line)
-    numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
     results = {}
 
-    numbers.each do |number|
+    VALUES.keys.each do |number|
       index = line.index(number)
       if index
         results[number] = index
@@ -13,14 +31,13 @@ class Day1::Trebuchet
     end
 
     result = results.min_by { |number, index| index }
-    return result.first
+    return VALUES[result.first]
   end
 
   def find_last_digit(line)
-    numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
     results = {}
 
-    numbers.map do |number|
+    VALUES.keys.map do |number|
       index = line.rindex(number)
       if index
         results[number] = index
@@ -28,7 +45,7 @@ class Day1::Trebuchet
     end
 
     result = results.max_by { |number, index| index }
-    return result.first
+    return VALUES[result.first]
   end
 
   def run(input)
