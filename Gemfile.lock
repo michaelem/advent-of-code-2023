@@ -2,7 +2,10 @@ GEM
   remote: https://rubygems.org/
   specs:
     minitest (5.20.0)
+    prettier_print (1.2.1)
     rake (13.1.0)
+    syntax_tree (6.2.0)
+      prettier_print (>= 1.2.0)
     thor (1.3.0)
     zeitwerk (2.6.12)
 
@@ -13,6 +16,7 @@ PLATFORMS
 DEPENDENCIES
   minitest
   rake
+  syntax_tree
   thor
   zeitwerk
 
