@@ -17,7 +17,7 @@ class AdventCli < Thor
 
     case day
     when '1'
-      Day1::Trebuchet.new.run(input_file)
+      puts Day1::Trebuchet.new.run(input_file)
     else
       puts "Solution for day #{day} not implemented yet!"
     end
