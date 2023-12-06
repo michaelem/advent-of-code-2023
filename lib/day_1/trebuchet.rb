@@ -10,7 +10,7 @@ VALUES = {
   "nine" => "9",
   "1" => "1",
   "2" => "2",
-  "3" =>  "3",
+  "3" => "3",
   "4" => "4",
   "5" => "5",
   "6" => "6",
@@ -25,9 +25,7 @@ class Day1::Trebuchet
 
     VALUES.keys.each do |number|
       index = line.index(number)
-      if index
-        results[number] = index
-      end
+      results[number] = index if index
     end
 
     result = results.min_by { |number, index| index }
@@ -39,9 +37,7 @@ class Day1::Trebuchet
 
     VALUES.keys.map do |number|
       index = line.rindex(number)
-      if index
-        results[number] = index
-      end
+      results[number] = index if index
     end
 
     result = results.max_by { |number, index| index }
@@ -49,9 +45,10 @@ class Day1::Trebuchet
   end
 
   def run(input)
-    lines = IO.readlines(input).map do |line|
-      (find_first_digit(line) + find_last_digit(line)).to_i
-    end
+    lines =
+      IO
+        .readlines(input)
+        .map { |line| (find_first_digit(line) + find_last_digit(line)).to_i }
 
     lines.sum().to_s
   end
