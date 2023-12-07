@@ -1,6 +1,6 @@
-require 'zeitwerk'
+require "zeitwerk"
 
 loader = Zeitwerk::Loader.new
-loader.push_dir('lib')
-loader.push_dir('test')
+loader.push_dir("lib")
+loader.push_dir("test")
 loader.setup
