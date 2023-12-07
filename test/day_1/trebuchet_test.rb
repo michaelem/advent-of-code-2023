@@ -1,4 +1,3 @@
-require "minitest/autorun"
 require "test/test_helper"
 
 class Day1::TrebuchetTest < Minitest::Test
