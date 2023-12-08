@@ -8,6 +8,12 @@ loader.push_dir("lib")
 loader.setup
 loader.eager_load
 
+SOLUTIONS = {
+  "1.1" => Day1::Trebuchet,
+  "2.1" => Day2::CubeConundrumPart1,
+  "2.2" => Day2::CubeConundrumPart2
+}
+
 class AdventCli < Thor
   option :input,
          type: :string,
@@ -15,17 +21,25 @@ class AdventCli < Thor
          banner: "input/input.txt",
          desc: "the input file to use"
 
-  desc "day", "run a solution for a given day"
-  def day(day)
-    input_file = options[:input] || "input/day_#{day}.txt"
+  option :part,
+         type: :string,
+         required: false,
+         banner: "1 or 2",
+         desc: "the part of the solution to run"
 
-    case day
-    when "1"
-      puts Day1::Trebuchet.new.run(input_file)
-    when "2"
-      puts Day2::CubeConundrum.new.run(input_file)
-    else
-      puts "Solution for day #{day} not implemented yet!"
+  desc "day",
+       "Run a solution for a given day. For example: `advent-cli day 1` or `advent-cli day 2.1`"
+  def day(day)
+    begin
+      input_file = options[:input] || "input/day_#{day}.txt"
+      part = options[:part] || "1"
+      key = "#{day}.#{part}"
+
+      if SOLUTIONS.keys.include?(key)
+        puts SOLUTIONS[key].new.run(input_file)
+      else
+        puts "Solution for day #{day} not implemented yet!"
+      end
     end
   rescue ArgumentError => e
     puts e.message

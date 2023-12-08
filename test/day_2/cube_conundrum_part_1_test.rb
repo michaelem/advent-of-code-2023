@@ -1,8 +1,8 @@
 require "test/test_helper"
 
-class Day2::CubeConundrumTest < Minitest::Test
+class Day2::CubeConundrumPart1Test < Minitest::Test
   def setup
-    @cube_conundrum = Day2::CubeConundrum.new()
+    @cube_conundrum = Day2::CubeConundrumPart1.new()
   end
 
   def test_run_part_1
