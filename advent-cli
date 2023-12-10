@@ -12,7 +12,8 @@ SOLUTIONS = {
   "1.1" => Day1::Trebuchet,
   "2.1" => Day2::CubeConundrumPart1,
   "2.2" => Day2::CubeConundrumPart2,
-  "3.1" => Day3::Part1
+  "3.1" => Day3::Part1,
+  "3.2" => Day3::Part2,
 }
 
 class AdventCli < Thor
