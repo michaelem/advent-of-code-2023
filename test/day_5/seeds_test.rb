@@ -6,6 +6,9 @@ class Day5::SeedsTest < Minitest::Test
   end
 
   def test_seeds
-    assert_equal [79, 14, 55, 13], @seeds.seeds
+    assert @seeds.in_range?(79)
+    assert @seeds.in_range?(92)
+    assert @seeds.in_range?(55)
+    assert @seeds.in_range?(67)
   end
 end

@@ -9,8 +9,17 @@ class Day5::Map
 
   def transpose(number)
     @ranges.each do |range|
-      if number >= range[:source_range_start] && number <= range[:source_range_start] + range[:range_length]
+      if number >= range[:source_range_start] && number < range[:source_range_start] + range[:range_length]
         return range[:destination_range_start] + (number - range[:source_range_start])
+      end
+    end
+    number
+  end
+
+  def reverse_transpose(number)
+    @ranges.each do |range|
+      if number >= range[:destination_range_start] && number < range[:destination_range_start] + range[:range_length]
+        return range[:source_range_start] + (number - range[:destination_range_start])
       end
     end
     number

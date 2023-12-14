@@ -17,6 +17,7 @@ SOLUTIONS = {
   "4.1" => Day4::Part1,
   "4.2" => Day4::Part2,
   "5.1" => Day5::Part1,
+  "5.2" => Day5::Part2,
 }
 
 class AdventCli < Thor
