@@ -2,18 +2,15 @@ class Day5::Part1
   def run(input)
     sections = File.read(input).split("\n\n")
 
-    seeds = sections[0].sub('seeds: ', '').split(' ').map(&:to_i)
+    seeds = sections[0].sub("seeds: ", "").split(" ").map(&:to_i)
 
-    almanac = sections[1..-1].map do |section|
-      Day5::Map.new(section)
-    end
+    almanac = sections[1..-1].map { |section| Day5::Map.new(section) }
 
-    locations = seeds.map do |seed|
-      almanac.each do |map|
-        seed = map.transpose(seed)
+    locations =
+      seeds.map do |seed|
+        almanac.each { |map| seed = map.transpose(seed) }
+        seed
       end
-      seed
-    end
 
     locations.min.to_s
   end

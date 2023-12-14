@@ -7,7 +7,7 @@ class Day5::MapTest < Minitest::Test
       50 98 2
       52 50 48
     INPUT
-    
+
     map = Day5::Map.new(input)
 
     assert_equal 2, map.ranges.length
@@ -27,7 +27,7 @@ class Day5::MapTest < Minitest::Test
       50 98 2
       52 50 48
     INPUT
-    
+
     map = Day5::Map.new(input)
     assert_equal 81, map.transpose(79)
     assert_equal 14, map.transpose(14)

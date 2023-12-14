@@ -8,16 +8,17 @@ class Day4::Scratchcard
   end
 
   attr_reader :name, :id, :numbers, :winning_numbers, :matches
-  
+
   def score
     if @matches <= 0
       0
     else
-      2 ** (@matches - 1)
+      2**(@matches - 1)
     end
   end
 
   private
+
   def get_name(card_string)
     card_string.split(": ")[0]
   end
@@ -27,9 +28,7 @@ class Day4::Scratchcard
   end
 
   def number_of_matches
-    @numbers.count do |number|
-      @winning_numbers.include?(number)
-    end
+    @numbers.count { |number| @winning_numbers.include?(number) }
   end
 
   def get_winning_numbers(card_string)

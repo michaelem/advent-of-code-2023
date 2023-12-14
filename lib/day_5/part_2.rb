@@ -1,8 +1,6 @@
 class Day5::Part2
   def reverse_transpose(almanac, input)
-    almanac.reverse.each do |map|
-      input = map.reverse_transpose(input)
-    end
+    almanac.reverse.each { |map| input = map.reverse_transpose(input) }
     input
   end
 
@@ -11,15 +9,11 @@ class Day5::Part2
 
     seeds = Day5::Seeds.new(sections[0])
 
-    almanac = sections[1..-1].map do |section|
-      Day5::Map.new(section)
-    end
+    almanac = sections[1..-1].map { |section| Day5::Map.new(section) }
 
     location = 0
 
-    while !seeds.in_range?(reverse_transpose(almanac, location))
-      location += 1
-    end
+    location += 1 while !seeds.in_range?(reverse_transpose(almanac, location))
 
     location.to_s
   end

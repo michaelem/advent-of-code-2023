@@ -2,7 +2,7 @@ class Day5::Seeds
   attr_reader :seeds
 
   def initialize(input)
-    @ranges = input.sub('seeds: ', '').split(' ').map(&:to_i)
+    @ranges = input.sub("seeds: ", "").split(" ").map(&:to_i)
   end
 
   def in_range?(number)
